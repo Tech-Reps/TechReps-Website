@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechReps - Home</title>
+  <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">TechReps</a>
+      
+      <nav id="nav-bar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="airpods.html" class="nav-link">AirPods Guide</a>
+        <a href="smartwatches.html" class="nav-link">Smartwatches & Speakers</a>
+        <a href="misc.html" class="nav-link">Misc Guide</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span><span id="theme-text">Dark Mode</span>
+        </button>
+
+        <button class="burger-menu" id="mobile-burger" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="hero-title">TechReps</h1>
+    <p class="hero-subtitle">
+      Your ultimate educational verification registry to analyze, spot, and protect yourself against sophisticated counterfeit electronics.
+    </p>
+    
+    <a href="airpods.html" class="discover-btn">Discover our guides</a>
+
+    <!-- Custom Colored Feature Section from image_e66522.png -->
+    <h2 class="section-heading-centered">What makes TechReps special?</h2>
+    <div class="cards-display-grid">
+      <div class="display-card card-amber">
+        <div class="card-icon">🤝</div>
+        <h3>Team of Repthusiast</h3>
+        <p>We have a great team of dedicated repthusiasts who can answer almost any question you may have!</p>
+      </div>
+      
+      <div class="display-card card-cream">
+        <div class="card-icon">💸</div>
+        <h3>none-Profit</h3>
+        <p>Sellers delivering top-tier products and support, driven by a non-profit mission.</p>
+      </div>
+      
+      <div class="display-card card-dark">
+        <div class="card-icon">⏰</div>
+        <h3>always up to date</h3>
+        <p>All our information is kept up to date by our large team of volunteer experts!</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- New Full-Width Stats Footer Panel from image_e66522.png -->
+  <section class="stats-footer-container">
+    <div class="stats-cta-row">
+      <a href="#" class="join-now-btn">Join Now</a>
+    </div>
+    
+    <div class="stats-grid-wrapper">
+      <div class="stat-node">
+        <span class="stat-number">08</span>
+        <h4 class="stat-label">Mods</h4>
+        <p class="stat-desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+      </div>
+      <div class="stat-node">
+        <span class="stat-number">150k+</span>
+        <h4 class="stat-label">Trusted User</h4>
+        <p class="stat-desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+      </div>
+      <div class="stat-node">
+        <span class="stat-number">98%</span>
+        <h4 class="stat-label">Happy User</h4>
+        <p class="stat-desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clean Bottom Redirect Links -->
+  <section class="community-section">
+    <p>Join our decentralized anti-counterfeit communities</p>
+    <div class="community-buttons">
+      <a href="https://discord.com" target="_blank" class="community-btn">Discord Redirect</a>
+      <a href="https://reddit.com" target="_blank" class="community-btn">Reddit Redirect</a>
+    </div>
+  </section>
+
+  <script src="theme-engine.js"></script>
+</body>
+</html>
