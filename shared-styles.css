@@ -31,6 +31,45 @@
   --text-badge-genuine: #86efac;
 }
 
+[data-theme="light"] {
+  --bg-main: #ffffff;
+  --bg-header: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --accent-color: #dfa84e;
+  --accent-hover: #c9933b;
+  --bg-badge: #fee2e2;
+  --text-badge: #b91c1c;
+  --bg-badge-genuine: #dcfce7;
+  --text-badge-genuine: #15803d;
+}
+
+/* System Color Scheme Fallback (Zero-FOUC) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-main: #121214;
+    --bg-header: #1a1a1e;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #2e2e38;
+    --bg-badge: #451a1a;
+    --text-badge: #fca5a5;
+    --bg-badge-genuine: #14532d;
+    --text-badge-genuine: #86efac;
+  }
+
+  :root:not([data-theme="light"]) .card-cream {
+    background-color: #24221f !important;
+  }
+  :root:not([data-theme="light"]) .card-cream h3 {
+    color: #ffffff !important;
+  }
+  :root:not([data-theme="light"]) .card-cream p {
+    color: #94a3b8 !important;
+  }
+}
+
 /* --- Base Rules & Craft Floor Browser Surfaces --- */
 * {
   box-sizing: border-box;
@@ -250,7 +289,7 @@ h1,
   text-decoration: none;
   border-radius: 8px;
   font-size: 1rem;
-  box-shadow: 0 4px 14px rgba(223, 168, 78, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   margin: 0 auto 60px auto;
   transition: background-color 0.2s ease;
 }
@@ -637,6 +676,37 @@ tr:last-child td {
   margin-right: 6px;
   display: inline-block;
   letter-spacing: 0.05em;
+}
+
+/* --- Coming Soon Badge --- */
+.badge-coming-soon {
+  background-color: rgba(223, 168, 78, 0.16);
+  color: var(--accent-hover);
+  border: 1px solid rgba(223, 168, 78, 0.45);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 9px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+[data-theme="dark"] .badge-coming-soon {
+  background-color: rgba(223, 168, 78, 0.18);
+  color: var(--accent-color);
+  border-color: rgba(223, 168, 78, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .badge-coming-soon {
+    background-color: rgba(223, 168, 78, 0.18);
+    color: var(--accent-color);
+    border-color: rgba(223, 168, 78, 0.4);
+  }
 }
 
 /* --- Verification Checklist Card --- */
