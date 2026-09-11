@@ -129,6 +129,17 @@ header {
   letter-spacing: -0.5px;
   color: var(--accent-color);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 38px;
+  width: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
 }
 
 #nav-bar {
@@ -519,6 +530,16 @@ tr:last-child td {
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+
+  .logo-img {
+    height: 32px;
+    width: 32px;
   }
 
   .nav-link {
