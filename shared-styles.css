@@ -169,6 +169,11 @@ header {
   font-weight: 700;
 }
 
+.nav-link.active:hover {
+  background-color: var(--accent-hover);
+  color: #121214 !important;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
