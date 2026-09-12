@@ -115,29 +115,43 @@ applyTheme(getThemeOverride());
 function initNavigation() {
   const burger = document.getElementById('mobile-burger');
   const navBar = document.getElementById('nav-bar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  if (navLinks.length === 0) return;
 
-  // Robust Path Normalization to prevent sub-page styling dropouts
-  let currentPathName = window.location.pathname.split("/").pop();
-  if (!currentPathName || currentPathName === "") {
-    currentPathName = "index.html";
+  // Helper to extract a canonical page slug (e.g. 'index', 'airpods', 'smartwatches', 'ai-glasses', 'misc')
+  function getPageSlug(path) {
+    if (!path) return 'index';
+    const clean = path.split('?')[0].split('#')[0];
+    const parts = clean.split('/').filter(Boolean);
+    if (parts.length === 0) return 'index';
+    const slug = parts[parts.length - 1].replace(/\.html?$/i, '').toLowerCase();
+    return (slug === '' || slug === 'index') ? 'index' : slug;
   }
 
-  const navLinks = document.querySelectorAll('.nav-link');
-  let foundActive = false;
+  const currentSlug = getPageSlug(window.location.pathname);
+  let matchedLink = null;
 
   navLinks.forEach(link => {
-    const linkHref = link.getAttribute('href').split("/").pop();
-    if (linkHref === currentPathName) {
-      link.classList.add('active');
-      foundActive = true;
-    } else {
-      link.classList.remove('active');
+    const href = link.getAttribute('href');
+    const linkSlug = getPageSlug(href);
+    if (linkSlug && linkSlug === currentSlug) {
+      matchedLink = link;
     }
   });
 
-  // Strict structural fallback for homepage references
-  if (!foundActive && navLinks.length > 0) {
-    if (currentPathName === "index.html" || currentPathName === "") {
+  if (matchedLink) {
+    navLinks.forEach(link => {
+      if (link === matchedLink) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  } else {
+    // If no dynamic match found (e.g. subfolder root /TechReps-Website/), respect existing static active link
+    const hasStaticActive = Array.from(navLinks).some(link => link.classList.contains('active'));
+    if (!hasStaticActive) {
+      // Fallback to Home (first link) if nothing is active
       navLinks[0].classList.add('active');
     }
   }
