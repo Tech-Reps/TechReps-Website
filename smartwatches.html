@@ -396,7 +396,7 @@
           <div class="subsection">
             <div class="subheading" role="button" tabindex="0" aria-expanded="false">
               <span class="arrow" aria-hidden="true"></span>
-              <h3>HK8 / HK9 / HK10 High-Performance SiFli Lineup</h3>
+              <h3>HK8 / HK9 / HK10 / HK12 High-Performance SiFli Lineup</h3>
             </div>
             <div class="subcontent">
               <div class="table-responsive">
@@ -413,6 +413,24 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td>HK12 Ultra 4 (49mm)</td>
+                      <td>Siche / SiFli Platform</td>
+                      <td>Siche SF32LB525</td>
+                      <td>Dual-Core Cortex-M33 + 2.5D GPU</td>
+                      <td>2.02" AMOLED (410×494, 60Hz)</td>
+                      <td>256MB / ~1GB (Local Storage)</td>
+                      <td>Wearfit Pro (RTOS)</td>
+                    </tr>
+                    <tr>
+                      <td>HK12 Pro (46mm)</td>
+                      <td>Siche / SiFli Platform</td>
+                      <td>Siche SF32LB525</td>
+                      <td>Dual-Core Cortex-M33 + 2.5D GPU</td>
+                      <td>2.02" AMOLED (410×494, 60Hz)</td>
+                      <td>256MB / ~1GB (Local Storage)</td>
+                      <td>Wearfit Pro (RTOS)</td>
+                    </tr>
                     <tr>
                       <td>HK10 Pro / HK10 Ultra 3</td>
                       <td>SiFli Platform</td>
@@ -633,7 +651,7 @@
 
             rows.forEach(row => {
               const cells = row.querySelectorAll('td');
-              if (cells.length < 5) return;
+              if (cells.length < 2) return;
 
               let combinedText = '';
               cells.forEach(cell => { combinedText += ' ' + cell.textContent.toLowerCase(); });

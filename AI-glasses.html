@@ -67,6 +67,7 @@
     <nav class="jump-nav" aria-label="Quick Page Navigation">
       <span class="jump-label">Jump to:</span>
       <a href="#authenticity-checklist" class="jump-link">How to Spot a Clone</a>
+      <a href="#packaging-tiers" class="jump-link">Packaging Tiers</a>
       <a href="#specs-matrix" class="jump-link">Model Comparison</a>
       <a href="#deep-dive" class="jump-link">Hardware Breakdown</a>
       <a href="#buying-advice" class="jump-link">Buyer's Verdict</a>
@@ -169,8 +170,91 @@
             <div class="checklist-col-desc">Made from molded TR90 plastic. While it is very light and comfortable (~35g vs. ~50g genuine), it feels lighter and less premium than authentic acetate.</div>
           </div>
         </div>
+
+        <div class="checklist-row">
+          <div class="checklist-col">
+            <div class="checklist-col-title">
+              <span class="badge-genuine">GENUINE</span> Multi-Layer Rigid Nesting Box
+            </div>
+            <div class="checklist-col-desc">Authentic packaging consists of a heavy, rigid multi-layer nesting box with high-grade textured grey inserts, clean laser-cut pull tabs, and factory-embossed regulatory markings.</div>
+          </div>
+          <div class="checklist-col">
+            <div class="checklist-col-title">
+              <span class="badge-missing">LACKING</span> Tiered Factory Boxes (Single-Layer Paper to 1:1)
+            </div>
+            <div class="checklist-col-desc">MT5 replicas vary widely by factory price tier: from generic $40 boxes with no Ray-Ban branding, to cheap $50–$60 single-layer thin fold-out paper boxes (see photo below), up to $100 top-tier multi-layer replica packaging.</div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Factory Packaging & Engraving Tiers (Collapsible Section) -->
+    <div class="section packaging-section" id="packaging-tiers">
+      <div class="heading" role="button" tabindex="0" aria-expanded="false">
+        <span class="arrow" aria-hidden="true"></span>
+        <h2>📦 Factory Packaging & Engraving Tiers (MT5 Series)</h2>
+      </div>
+      <div class="content" style="display: none;">
+        <p class="packaging-intro">
+          <strong>Important Buying Advisory:</strong> For replica smart glasses like the MT5 Ultra, factories produce multiple versions where frame engravings and retail boxes attempt to copy genuine Ray-Ban Meta packaging. These are strictly separated into three distinct factory price tiers:
+        </p>
+
+        <div class="tier-list">
+          <div class="tier-item">
+            <div class="tier-header">
+              <span class="tier-badge tier-badge-standard">Tier 1: Generic</span>
+              <span class="tier-price">~$40</span>
+            </div>
+            <h4 class="tier-title">Original Factory Packaging</h4>
+            <p class="tier-desc">
+              Shipped in the manufacturer's own original MT5 generic white box labeled "SMART GLASSES" with orange charging case <em>(see visual comparison below)</em>. Contains no counterfeit Ray-Ban logos or deceptive serial engravings. Ideal for honest buyers who want the hardware for utility without counterfeit branding.
+            </p>
+          </div>
+
+          <div class="tier-item">
+            <div class="tier-header">
+              <span class="tier-badge tier-badge-mid">Tier 2: Budget Clone</span>
+              <span class="tier-price">~$50 – $60</span>
+            </div>
+            <h4 class="tier-title">1-Layer Paper Box & Basic Engraving</h4>
+            <p class="tier-desc">
+              Uses a thin, simplified single-layer paper unfold box with printed "Ray-Ban | Meta" branding and cheaper temple engravings <em>(see visual comparison below)</em>. The flimsy paper construction, lack of inner textured nesting, and basic printing are immediate giveaways.
+            </p>
+          </div>
+
+          <div class="tier-item">
+            <div class="tier-header">
+              <span class="tier-badge tier-badge-top">Tier 3: 1:1 Clone</span>
+              <span class="tier-price">~$100</span>
+            </div>
+            <h4 class="tier-title">Top-Quality Multi-Layer Replica Box</h4>
+            <p class="tier-desc">
+              High-end replica packaging featuring rigid multi-layer nesting cardboard, textured grey inner inserts, pull tabs, and refined laser engravings that closely replicate authentic Ray-Ban Meta retail packaging <em>(reference verified by trusted community sellers on Discord)</em>.
+            </p>
+          </div>
+        </div>
+
+        <div class="comparison-grid">
+          <figure class="comparison-figure">
+            <div class="comparison-img-box">
+              <img src="images/mt5-generic-box.png" alt="MT5 Ultra original generic factory packaging with SMART GLASSES box and orange leather charging case" class="comparison-img" loading="lazy">
+            </div>
+            <figcaption class="comparison-caption">
+              <strong>Tier 1 (~$40):</strong> Original generic manufacturer packaging ("SMART GLASSES" box with orange charging case, no counterfeit branding).
+            </figcaption>
+          </figure>
+
+          <figure class="comparison-figure">
+            <div class="comparison-img-box">
+              <img src="images/mt5-box-tiers.jpg" alt="Real vs Fake Ray-Ban Meta Packaging Comparison: Authentic multi-layer textured packaging on the left versus budget single-layer paper box on the right" class="comparison-img" loading="lazy">
+            </div>
+            <figcaption class="comparison-caption">
+              <strong>Tier 2 (~$50–$60) vs. Real:</strong> Authentic Ray-Ban Meta multi-layer rigid nesting packaging (left) versus budget single-layer paper unfold clone box (right).
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
 
     <!-- Interactive Search & Chipset Filter Bar -->
     <div class="catalog-filter-panel" role="search" aria-label="Filter AI Glasses Catalog">
@@ -366,6 +450,20 @@
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           toggleAccordion(e);
+        }
+      });
+    });
+
+    // Auto-expand accordion when jumping to it via quick-nav links
+    document.querySelectorAll('.jump-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+        const heading = targetEl.querySelector('.heading') || (targetEl.classList.contains('heading') ? targetEl : null);
+        if (heading) {
+          setAccordionState(heading, true);
         }
       });
     });
