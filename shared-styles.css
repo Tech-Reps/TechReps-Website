@@ -1636,6 +1636,7 @@ tr:last-child td {
   position: relative;
   width: 100%;
   max-width: 680px;
+  aspect-ratio: 16 / 9;
   margin: 0 auto;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -1643,12 +1644,15 @@ tr:last-child td {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-.preview-video-player {
+.preview-video-player,
+.preview-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  border: none;
   display: block;
-  max-height: 420px;
-  background-color: #000;
 }
 
 .video-caption {
