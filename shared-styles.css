@@ -1297,11 +1297,85 @@ tr:last-child td {
   }
 }
 
-/* --- Teardown & Spec Highlights (MT5 Ultra & M02X Pro Max) --- */
+/* --- Teardown & Spec Highlights (Merged Section & Subtabs) --- */
+.teardown-section,
 .mt5-section,
 .m02x-section {
   margin-top: 30px;
   margin-bottom: 35px;
+}
+
+/* Subtab Navigation Bar */
+.teardown-subtabs-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.teardown-subtab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.teardown-subtab-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(223, 168, 78, 0.08);
+}
+
+.teardown-subtab-btn.active {
+  background-color: var(--accent-color);
+  color: #121214;
+  border-color: var(--accent-color);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.teardown-subtab-btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.teardown-subtab-panel {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.teardown-subtab-panel.hidden,
+.teardown-subtab-panel[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .teardown-subtabs-nav {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .teardown-subtab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.84rem;
+    white-space: nowrap;
+  }
 }
 
 .spec-highlights-bar {
@@ -1405,9 +1479,8 @@ tr:last-child td {
   background-color: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 14px 16px;
+  padding: 18px 22px;
   margin-top: 0;
-  height: 100%;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
 }
@@ -1417,22 +1490,22 @@ tr:last-child td {
 }
 
 .package-contents-title {
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .package-contents-list {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 22px;
   color: var(--text-muted);
-  font-size: 0.84rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .package-contents-list li {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .package-contents-list li:last-child {
@@ -1444,28 +1517,21 @@ tr:last-child td {
 }
 
 .m02x-package-wrapper {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  align-items: stretch;
-  margin-top: 14px;
-}
-
-@media (max-width: 860px) {
-  .m02x-package-wrapper {
-    grid-template-columns: 1fr;
-  }
+  margin-top: 16px;
 }
 
 .m02x-unboxing-figure {
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 10px;
-  height: 100%;
+  padding: 20px;
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1475,20 +1541,126 @@ tr:last-child td {
 }
 
 .m02x-unboxing-figure .comparison-img-box {
-  min-height: 150px;
-  max-height: 190px;
-  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 0;
+  box-sizing: border-box;
+}
+
+.m02x-unboxing-figure .img-zoom-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: zoom-in;
 }
 
 .m02x-unboxing-figure .comparison-img {
-  max-height: 175px;
+  max-width: 100%;
+  max-height: 520px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.m02x-unboxing-figure .comparison-img:hover {
+  transform: scale(1.015);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
 
 .m02x-unboxing-figure .comparison-caption {
-  padding-top: 6px;
-  font-size: 0.76rem;
-  line-height: 1.35;
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 650px;
+  width: 100%;
 }
+
+/* --- Video Preview Card (MT6 Coming Soon) --- */
+.video-preview-card {
+  margin-top: 18px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-preview-card:hover {
+  border-color: var(--accent-color);
+}
+
+.video-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.video-badge {
+  background-color: rgba(223, 168, 78, 0.16);
+  color: var(--accent-hover);
+  border: 1px solid rgba(223, 168, 78, 0.45);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+}
+
+[data-theme="dark"] .video-badge {
+  background-color: rgba(223, 168, 78, 0.18);
+  color: var(--accent-color);
+  border-color: rgba(223, 168, 78, 0.4);
+}
+
+.video-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.video-player-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.preview-video-player {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 420px;
+  background-color: #000;
+}
+
+.video-caption {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+}
+
+
 
 
 
